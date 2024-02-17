@@ -17,6 +17,7 @@ class DetailScreen extends StatelessWidget {
     return Scaffold(
       backgroundColor: Colors.indigo[100],
       body: Consumer<DeviceViewModel>(builder: (context, deviceViewModel, _) {
+        double heating = deviceViewModel.heating;
         return Center(
           child: Padding(
             padding: const EdgeInsets.only(top: 80.0),
@@ -49,6 +50,49 @@ class DetailScreen extends StatelessWidget {
                     },
                   ),
                 ),
+               (device.name == "Thermostat") ? Padding(
+                  padding: const EdgeInsets.all(10),
+                  child: Container(
+                        padding: const EdgeInsets.symmetric(vertical: 18),
+                        decoration: BoxDecoration(
+                          color: Colors.indigo[50],
+                          borderRadius: BorderRadius.circular(8),
+                        ),
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            const Padding(
+                              padding: EdgeInsets.symmetric(horizontal: 24),
+                              child: Text(
+                                'HEATING',
+                                style: TextStyle(
+                                  fontWeight: FontWeight.bold,
+                                ),
+                              ),
+                            ),
+                            Slider(
+                              value: heating,
+                              onChanged: (value) {
+                                deviceViewModel.updateHeating(value);
+                              },
+                              activeColor: Colors.black,
+                              max: 30,
+                            ),
+                            Padding(
+                              padding: const EdgeInsets.symmetric(horizontal: 24),
+                              child: Row(
+                                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                children: const [
+                                  Text('0\u00B0'),
+                                  Text('15\u00B0'),
+                                  Text('30\u00B0'),
+                                ],
+                              ),
+                            )
+                          ],
+                        ),
+                      ),
+                ) : const SizedBox(),
               ],
             ),
           ),

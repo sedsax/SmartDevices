@@ -4,10 +4,13 @@ import 'package:smart_devices/models/device.dart';
 
 class DeviceViewModel extends ChangeNotifier {
   late SharedPreferences _prefs;
+  double _heating = 0; 
+  double get heating => _heating; 
 
   List<Device> devices = [
     Device(name: 'Fan', isPowerOn: false, icon: Icons.wind_power),
-    Device(name: 'Temperature', isPowerOn: false, icon: Icons.thermostat),
+    Device(name: 'Thermostat', isPowerOn: false, icon: Icons.thermostat),
+    Device(name: 'Smart TV', isPowerOn: false, icon: Icons.tv),
   ];
 
   DeviceViewModel(this._prefs) {
@@ -32,5 +35,10 @@ class DeviceViewModel extends ChangeNotifier {
     devices[index].isPowerOn = value;
     _saveDeviceData();
     notifyListeners();
+  }
+
+  void updateHeating(double value) {
+    _heating = value;
+    notifyListeners(); 
   }
 }
