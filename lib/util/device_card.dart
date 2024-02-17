@@ -21,7 +21,7 @@ class DeviceCard extends StatelessWidget {
       child: Container(
         width: MediaQuery.of(context).size.width / 2.5,
         height: MediaQuery.of(context).size.width / 1.9,
-        padding: EdgeInsets.symmetric(vertical: 15),
+        padding: const EdgeInsets.symmetric(vertical: 15),
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(24),
           color: device.isPowerOn
