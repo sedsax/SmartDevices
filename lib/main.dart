@@ -6,8 +6,8 @@ import 'package:smart_devices/view/home_screen.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  final SharedPreferences _prefs = await SharedPreferences.getInstance();
-  final DeviceViewModel deviceViewModel = DeviceViewModel(_prefs);
+  final SharedPreferences prefs = await SharedPreferences.getInstance();
+  final DeviceViewModel deviceViewModel = DeviceViewModel(prefs);
   deviceViewModel.loadDeviceData();
   runApp(ChangeNotifierProvider(
     create: (context) => deviceViewModel,

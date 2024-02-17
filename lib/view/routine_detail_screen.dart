@@ -27,16 +27,16 @@ class DetailScreen extends StatelessWidget {
                   children: [
                     IconButton(
                       onPressed: () => Navigator.pop(context),
-                      icon: const Icon(Icons.arrow_back_ios),
+                      icon: const Icon(Icons.arrow_back_ios, color: Colors.indigoAccent,),
                     ),
                     Text(
                       device.name,
                       style: const TextStyle(
-                          fontSize: 20, fontWeight: FontWeight.bold),
+                          fontSize: 20, fontWeight: FontWeight.bold, color: Colors.indigoAccent),
                     ),
                     const Padding(
                       padding: EdgeInsets.only(right: 15.0),
-                      child: Icon(Icons.more_vert),
+                      child: Icon(Icons.more_vert, color: Colors.indigoAccent,),
                     ),
                   ],
                 ),

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:smart_devices/util/device_card.dart';
 import 'package:smart_devices/view-models/device_view_model.dart';
+import 'package:smart_devices/view/new_device.dart';
 import 'package:smart_devices/view/routine_detail_screen.dart';
 
 class HomeScreen extends StatelessWidget {
@@ -11,6 +12,16 @@ class HomeScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.indigo[100],
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {
+          Navigator.push(
+            context,
+            MaterialPageRoute(builder: (context) => const NewDevicePage()),
+          );
+        },
+        backgroundColor: Colors.indigoAccent,
+        child: const Icon(Icons.add),
+      ),
       body: SafeArea(
         child: Consumer<DeviceViewModel>(
           builder: (context, deviceViewModel, _) {
@@ -28,17 +39,18 @@ class HomeScreen extends StatelessWidget {
                           Icon(
                             Icons.person,
                             size: 40,
+                            color: Colors.indigoAccent,
                           ),
                         ],
                       ),
                       Text(
                         "Welcome Home,",
                         style: TextStyle(
-                            fontSize: 20, color: Colors.grey.shade800),
+                            fontSize: 20, color: Colors.indigo[400]),
                       ),
                       const Text(
                         'Seda Savaş',
-                        style: TextStyle(fontSize: 52),
+                        style: TextStyle(fontSize: 42, color: Colors.indigo),
                       ),
                     ],
                   ),
@@ -53,6 +65,13 @@ class HomeScreen extends StatelessWidget {
                       fontSize: 24,
                       color: Colors.grey.shade800,
                     ),
+                  ),
+                ),
+                const Padding(
+                  padding: EdgeInsets.symmetric(horizontal: 40.0),
+                  child: Divider(
+                    thickness: 1,
+                    color: Colors.black,
                   ),
                 ),
                 const SizedBox(height: 10),
