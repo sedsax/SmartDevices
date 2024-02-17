@@ -23,6 +23,7 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.indigo[100],
       body: SafeArea(
           child: Column(
         children: [
@@ -85,7 +86,7 @@ class _HomeScreenState extends State<HomeScreen> {
                     Navigator.push(
                       context,
                       MaterialPageRoute(
-                          builder: (context) => DetailScreen(device: device)),
+                          builder: (context) => DetailScreen(device: device, onChanged: (value) => devicePowerSwitch(value, index),)),
                     );
                   },
                   child: DeviceCard(

@@ -24,14 +24,34 @@ class DeviceCard extends StatelessWidget {
         padding: EdgeInsets.symmetric(vertical: 15),
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(24),
-            color: device.isPowerOn ? AppColors.deviceCardDark : AppColors.deviceCardLight,
+          color: device.isPowerOn
+              ? AppColors.deviceCardLight
+              : AppColors.deviceCardDark,
         ),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-            Icon(device.icon, size: 60, color: device.isPowerOn ? Colors.white : Colors.black),
-            Text(device.name, style: TextStyle(fontSize: 22, color: device.isPowerOn ? Colors.white : Colors.black),),
-            Switch(value: device.isPowerOn, activeColor: Colors.green, onChanged: onChanged),
+            Icon(device.icon,
+                size: 60,
+                color: device.isPowerOn ? Colors.black : Colors.white),
+            Text(
+              device.name,
+              style: TextStyle(
+                  fontSize: 22,
+                  color: device.isPowerOn ? Colors.black : Colors.white),
+            ),
+            Switch(
+                value: device.isPowerOn,
+                activeColor: Colors.green[400],
+                inactiveThumbColor: Colors.grey,
+                inactiveTrackColor: Colors.grey[350],
+                onChanged: (value) {
+                if (onChanged != null) {
+                  onChanged!(value);
+                }
+              },
+            
+            ),
           ],
         ),
       ),
