@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:smart_devices/constants/colors.dart';
-import 'package:smart_devices/view/new_routine.dart';
+import 'package:smart_devices/view/new_routine_screen.dart';
 
 class WelcomeUser extends StatelessWidget {
   const WelcomeUser({
@@ -53,7 +53,7 @@ class WelcomeUser extends StatelessWidget {
                     Navigator.push(
                       context,
                       MaterialPageRoute(
-                          builder: (context) => const NewRoutinePage()),
+                          builder: (context) => NewRoutineScreen()),
                     );
                   },
                   icon: const Icon(Icons.add_circle_outline, size: 40))
