@@ -30,8 +30,6 @@ Dependencies:
 
 [Smart Devices App](https://youtube.com/shorts/9hyyJFpr5Yc?feature=share)
 
-| ![Dashboard-off](Simulator Screenshot - iPhone 15 Pro - 2024-02-18 at 23.30.46.png) | ![Dashboard-on](Simulator Screenshot - iPhone 15 Pro - 2024-02-18 at 23.30.53.png) |
-
 Smart Devices uygulaması ile akıllı cihazları ekleyebilir ve program planlayıp rutinler oluşturabilirsiniz. 
 Rutin ekleme ve silme işlemleri yapılıyor.
 Sayfalar arası veri aktarımı yapılıyor.
