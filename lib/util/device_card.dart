@@ -39,7 +39,8 @@ class DeviceCard extends StatelessWidget {
               routine.device.name,
               style: TextStyle(
                   fontSize: 22,
-                  color: routine.device.isPowerOn ? Colors.black : Colors.white),
+                  color:
+                      routine.device.isPowerOn ? Colors.black : Colors.white),
             ),
             Switch(
               value: routine.device.isPowerOn,

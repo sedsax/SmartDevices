@@ -81,7 +81,7 @@ class RoutineCard extends StatelessWidget {
                 const Spacer(),
                 IconButton(
                   onPressed: () {
-                    deviceViewModel.deleteRoutine(context,index);
+                    deviceViewModel.deleteRoutine(context, index);
                   },
                   icon: const Icon(Icons.delete_outline_outlined),
                   color: AppColors.routinePink,

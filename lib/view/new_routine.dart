@@ -11,7 +11,6 @@ class NewRoutinePage extends StatefulWidget {
   // ignore: library_private_types_in_public_api
   _NewRoutinePageState createState() => _NewRoutinePageState();
 }
-
 class _NewRoutinePageState extends State<NewRoutinePage> {
   String routineName = '';
   Device? selectedDevice;

@@ -7,6 +7,8 @@ class AppColors {
   static Color routinePink = Colors.pink[700]!;
   static Color routineCard = Colors.indigo[200]!;
 
-  static Color floatingButton =  Colors.indigoAccent;
+  static Color indigoA =  Colors.indigoAccent;
   static Color background = Colors.indigo[100]!;
+  static Color indigo =  Colors.indigo;
+  static Color indigo4 = Colors.indigo[400]!;
 }

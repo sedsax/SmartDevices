@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:smart_devices/constants/colors.dart';
 import 'package:smart_devices/view/new_routine.dart';
 
 class WelcomeUser extends StatelessWidget {
@@ -19,21 +20,21 @@ class WelcomeUser extends StatelessWidget {
         children: [
           Row(
             mainAxisAlignment: MainAxisAlignment.end,
-            children: const [
+            children: [
               Icon(
                 Icons.person,
                 size: 40,
-                color: Colors.indigoAccent,
+                color: AppColors.indigoA,
               ),
             ],
           ),
           Text(
             welcomeMessage,
-            style: TextStyle(fontSize: 20, color: Colors.indigo[400]),
+            style: TextStyle(fontSize: 20, color: AppColors.indigo4),
           ),
-          const Text(
+          Text(
             userName,
-            style: TextStyle(fontSize: 42, color: Colors.indigo),
+            style: TextStyle(fontSize: 42, color: AppColors.indigo),
           ),
           const SizedBox(height: 10),
           Row(
@@ -46,7 +47,7 @@ class WelcomeUser extends StatelessWidget {
                   color: Colors.grey.shade800,
                 ),
               ),
-              Spacer(),
+              const Spacer(),
               IconButton(
                   onPressed: () {
                     Navigator.push(
@@ -55,7 +56,7 @@ class WelcomeUser extends StatelessWidget {
                           builder: (context) => const NewRoutinePage()),
                     );
                   },
-                  icon: Icon(Icons.add))
+                  icon: const Icon(Icons.add_circle_outline, size: 40))
             ],
           ),
           const Divider(

@@ -80,20 +80,20 @@ class DeviceViewModel extends ChangeNotifier {
     loadRoutineData();
   }
 
-void loadRoutineData() async {
-  _prefs = await SharedPreferences.getInstance();
-  for (int i = 0; i < routines.length; i++) {
-    routines[i].device.isPowerOn = _prefs.getBool('routine_device_$i') ?? false;
+  void loadRoutineData() async {
+    _prefs = await SharedPreferences.getInstance();
+    for (int i = 0; i < routines.length; i++) {
+      routines[i].device.isPowerOn =
+          _prefs.getBool('routine_device_$i') ?? false;
+    }
+    notifyListeners();
   }
-  notifyListeners();
-}
 
-void _saveRoutineData() async {
-  for (int i = 0; i < routines.length; i++) {
-    await _prefs.setBool('routine_device_$i', routines[i].device.isPowerOn);
+  void _saveRoutineData() async {
+    for (int i = 0; i < routines.length; i++) {
+      await _prefs.setBool('routine_device_$i', routines[i].device.isPowerOn);
+    }
   }
-}
-
 
   void devicePowerSwitch(bool value, int index) {
     final device = routines[index].device;
