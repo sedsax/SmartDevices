@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:smart_devices/models/device.dart';
+import 'package:smart_devices/models/routine.dart';
 
 class DeviceViewModel extends ChangeNotifier {
   late SharedPreferences _prefs;
@@ -10,8 +11,34 @@ class DeviceViewModel extends ChangeNotifier {
   List<Device> devices = [
     Device(name: 'Fan', isPowerOn: false, icon: Icons.wind_power),
     Device(name: 'Thermostat', isPowerOn: false, icon: Icons.thermostat),
-    Device(name: 'Smart TV', isPowerOn: false, icon: Icons.tv),
+   // Device(name: 'Smart TV', isPowerOn: false, icon: Icons.tv),
   ];
+
+  List<Device> selectDevices = [
+    Device(name: 'Fan', isPowerOn: false, icon: Icons.wind_power),
+    Device(name: 'Thermostat', isPowerOn: false, icon: Icons.thermostat),
+    Device(name: 'Smart TV', isPowerOn: false, icon: Icons.tv),
+    Device(name: 'Camera', isPowerOn: false, icon: Icons.camera_indoor),
+    Device(name: 'Bulbs', isPowerOn: false, icon: Icons.light),
+    Device(name: 'Power Plugs', isPowerOn: false, icon: Icons.power),
+    Device(name: 'Curtains', isPowerOn: false, icon: Icons.blinds),
+  ];
+  
+
+  // veriler kaydedilecek
+  //listeyi güncelleme ve silme seçenekleri de eklenecek
+  final List<Routine> _routines = [];
+  List<Routine> get routines => _routines;
+  void addRoutine(Routine routine) {
+    _routines.add(routine);
+    notifyListeners(); 
+  }
+
+  void deleteRoutine(int index) {
+  _routines.removeAt(index);
+  notifyListeners();
+}
+
 
   DeviceViewModel(this._prefs) {
     loadDeviceData();

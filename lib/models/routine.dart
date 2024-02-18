@@ -1,13 +1,16 @@
+import 'package:flutter/material.dart';
 import 'package:smart_devices/models/device.dart';
 
 class Routine {
   final String name;
-  final List<Device> devices;
+  final Device device;
+  final TimeOfDay time;
   final List<String> actions;
 
   Routine({
     required this.name,
-    required this.devices,
+    required this.device,
+    required this.time,
     required this.actions,
   });
 }
