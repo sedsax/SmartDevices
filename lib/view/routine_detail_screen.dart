@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
-import 'package:smart_devices/models/device.dart';
 import 'package:smart_devices/models/routine.dart';
 import 'package:smart_devices/util/device_card.dart';
 import 'package:smart_devices/util/routine_card.dart';
@@ -96,7 +95,10 @@ class DetailScreen extends StatelessWidget {
                         ),
                       ),
                 ) : const SizedBox(),
-                RoutineCard(deviceViewModel: deviceViewModel, routine: routine, index: index,),
+                Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 25, vertical: 10),
+                  child: RoutineCard(deviceViewModel: deviceViewModel, routine: routine, index: index,),
+                ),
               ],
             ),
           ),

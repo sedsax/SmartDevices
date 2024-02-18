@@ -4,15 +4,15 @@ import 'package:smart_devices/models/device.dart';
 import 'package:smart_devices/models/routine.dart';
 import 'package:smart_devices/view-models/device_view_model.dart';
 
-class NewDevicePage extends StatefulWidget {
-  const NewDevicePage({super.key});
+class NewRoutinePage extends StatefulWidget {
+  const NewRoutinePage({super.key});
 
   @override
   // ignore: library_private_types_in_public_api
-  _NewDevicePageState createState() => _NewDevicePageState();
+  _NewRoutinePageState createState() => _NewRoutinePageState();
 }
 
-class _NewDevicePageState extends State<NewDevicePage> {
+class _NewRoutinePageState extends State<NewRoutinePage> {
   String routineName = '';
   Device? selectedDevice;
   TimeOfDay? selectedTime;

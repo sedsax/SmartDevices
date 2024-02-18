@@ -5,7 +5,7 @@ import 'package:smart_devices/util/device_card.dart';
 import 'package:smart_devices/util/routine_card.dart';
 import 'package:smart_devices/util/welcome_user.dart';
 import 'package:smart_devices/view-models/device_view_model.dart';
-import 'package:smart_devices/view/new_device.dart';
+import 'package:smart_devices/view/new_routine.dart';
 import 'package:smart_devices/view/routine_detail_screen.dart';
 
 class HomeScreen extends StatelessWidget {
@@ -19,7 +19,7 @@ class HomeScreen extends StatelessWidget {
         onPressed: () {
           Navigator.push(
             context,
-            MaterialPageRoute(builder: (context) => const NewDevicePage()),
+            MaterialPageRoute(builder: (context) => const NewRoutinePage()),
           );
         },
         backgroundColor: AppColors.floatingButton,
@@ -30,18 +30,14 @@ class HomeScreen extends StatelessWidget {
           builder: (context, deviceViewModel, _) {
             return Column(
               children: [
-                const SizedBox(height: 50),
+                const SizedBox(height: 10),
                 const WelcomeUser(),
                 const SizedBox(height: 10),
-                Expanded(
-                  child: GridView.builder(
+                 Expanded(
+                  child: ListView.builder(
                     itemCount: deviceViewModel.routines.length,
-                    padding: const EdgeInsets.symmetric(horizontal: 25),
-                    gridDelegate:
-                        const SliverGridDelegateWithFixedCrossAxisCount(
-                      crossAxisCount: 2,
-                      childAspectRatio: 1 / 1.3,
-                    ),
+                    scrollDirection: Axis.horizontal,
+                    padding: const EdgeInsets.symmetric(horizontal: 25, vertical: 20),
                     itemBuilder: (context, index) {
                       final routine = deviceViewModel.routines[index];
                       return GestureDetector(

@@ -1,7 +1,6 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:flutter/material.dart';
 import 'package:smart_devices/constants/colors.dart';
-import 'package:smart_devices/models/device.dart';
 import 'package:smart_devices/models/routine.dart';
 
 // ignore: must_be_immutable
@@ -22,7 +21,7 @@ class DeviceCard extends StatelessWidget {
       padding: const EdgeInsets.all(5.0),
       child: Container(
         width: MediaQuery.of(context).size.width / 2.5,
-        height: MediaQuery.of(context).size.width / 1.9,
+        height: MediaQuery.of(context).size.height / 3.9,
         padding: const EdgeInsets.symmetric(vertical: 15),
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(24),
