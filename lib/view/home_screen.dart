@@ -15,16 +15,6 @@ class HomeScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: AppColors.background,
-      floatingActionButton: FloatingActionButton(
-        onPressed: () {
-          Navigator.push(
-            context,
-            MaterialPageRoute(builder: (context) => const NewRoutinePage()),
-          );
-        },
-        backgroundColor: AppColors.floatingButton,
-        child: const Icon(Icons.add),
-      ),
       body: SafeArea(
         child: Consumer<DeviceViewModel>(
           builder: (context, deviceViewModel, _) {
@@ -67,10 +57,24 @@ class HomeScreen extends StatelessWidget {
                     padding: const EdgeInsets.symmetric(horizontal: 25),
                     itemBuilder: (context, index) {
                       final routine = deviceViewModel.routines[index];
-                      return RoutineCard(
-                          routine: routine,
-                          index: index,
-                          deviceViewModel: deviceViewModel);
+                      return GestureDetector
+                      (
+                        onTap: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => DetailScreen(
+                                routine: routine,
+                                index: index,
+                              ),
+                            ),
+                          );
+                        },
+                        child: RoutineCard(
+                            routine: routine,
+                            index: index,
+                            deviceViewModel: deviceViewModel),
+                      );
                     },
                   ),
                 ),

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:smart_devices/view/new_routine.dart';
 
 class WelcomeUser extends StatelessWidget {
   const WelcomeUser({
@@ -28,21 +29,34 @@ class WelcomeUser extends StatelessWidget {
           ),
           Text(
             welcomeMessage,
-            style:
-                TextStyle(fontSize: 20, color: Colors.indigo[400]),
+            style: TextStyle(fontSize: 20, color: Colors.indigo[400]),
           ),
           const Text(
             userName,
             style: TextStyle(fontSize: 42, color: Colors.indigo),
           ),
           const SizedBox(height: 10),
-          Text(
-            smartDevices,
-            style: TextStyle(
-              fontWeight: FontWeight.bold,
-              fontSize: 24,
-              color: Colors.grey.shade800,
-            ),
+          Row(
+            children: [
+              Text(
+                smartDevices,
+                style: TextStyle(
+                  fontWeight: FontWeight.bold,
+                  fontSize: 24,
+                  color: Colors.grey.shade800,
+                ),
+              ),
+              Spacer(),
+              IconButton(
+                  onPressed: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => const NewRoutinePage()),
+                    );
+                  },
+                  icon: Icon(Icons.add))
+            ],
           ),
           const Divider(
             thickness: 1,
