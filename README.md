@@ -3,26 +3,26 @@
 Proje Mimarisi (MVVM)
 
 Smart Devices
-├── lib
-│   ├── constants
-│   │   ├── colors.dart
-│   │   └── routine_textstyle.dart
-│   ├── models
-│   │   ├── device.dart
-│   │   └── routine.dart
-│   ├── util
-│   │   ├── device_card_list.dart
-│   │   ├── device_card.dart
-│   │   ├── routine_card_list.dart
-│   │   ├── routine_card.dart
-│   │   └── welcome_user.dart
-│   ├── view
-│   │   ├── home_screen.dart
-│   │   ├── new_routine_screen.dart
-│   │   └── routine_detail_screen.dart
-│   ├── view-models
-│   │   └── device_view_model.dart
-│   └── main.dart
+lib
+  constants
+    - colors.dart
+    - routine_textstyle.dart
+  models
+    - device.dart
+    - routine.dart
+  util
+    - device_card_list.dart
+    - device_card.dart
+    - routine_card_list.dart
+    - routine_card.dart
+    - welcome_user.dart
+  view
+    - home_screen.dart
+    - new_routine_screen.dart
+    - routine_detail_screen.dart
+  view-models
+    - device_view_model.dart
+  main.dart
 
 Dependencies:
   - Provider
