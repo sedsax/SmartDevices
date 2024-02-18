@@ -8,7 +8,7 @@ void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   final SharedPreferences prefs = await SharedPreferences.getInstance();
   final DeviceViewModel deviceViewModel = DeviceViewModel(prefs);
-  deviceViewModel.loadDeviceData();
+  deviceViewModel.loadRoutineData();
   runApp(ChangeNotifierProvider(
     create: (context) => deviceViewModel,
     child: const MaterialApp(

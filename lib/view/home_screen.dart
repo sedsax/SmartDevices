@@ -35,7 +35,7 @@ class HomeScreen extends StatelessWidget {
                 const SizedBox(height: 10),
                 Expanded(
                   child: GridView.builder(
-                    itemCount: deviceViewModel.devices.length,
+                    itemCount: deviceViewModel.routines.length,
                     padding: const EdgeInsets.symmetric(horizontal: 25),
                     gridDelegate:
                         const SliverGridDelegateWithFixedCrossAxisCount(
@@ -43,21 +43,21 @@ class HomeScreen extends StatelessWidget {
                       childAspectRatio: 1 / 1.3,
                     ),
                     itemBuilder: (context, index) {
-                      final device = deviceViewModel.devices[index];
+                      final routine = deviceViewModel.routines[index];
                       return GestureDetector(
                         onTap: () {
                           Navigator.push(
                             context,
                             MaterialPageRoute(
                               builder: (context) => DetailScreen(
-                                device: device,
+                                routine: routine,
                                 index: index,
                               ),
                             ),
                           );
                         },
                         child: DeviceCard(
-                          device: device,
+                          routine: routine,
                           onChanged: (value) =>
                               deviceViewModel.devicePowerSwitch(value, index),
                         ),

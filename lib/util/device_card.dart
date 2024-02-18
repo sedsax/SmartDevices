@@ -2,15 +2,17 @@
 import 'package:flutter/material.dart';
 import 'package:smart_devices/constants/colors.dart';
 import 'package:smart_devices/models/device.dart';
+import 'package:smart_devices/models/routine.dart';
 
 // ignore: must_be_immutable
 class DeviceCard extends StatelessWidget {
-  final Device device;
+  //final Device device;
+  final Routine routine;
   void Function(bool)? onChanged;
 
   DeviceCard({
     Key? key,
-    required this.device,
+    required this.routine,
     required this.onChanged,
   }) : super(key: key);
 
@@ -24,24 +26,24 @@ class DeviceCard extends StatelessWidget {
         padding: const EdgeInsets.symmetric(vertical: 15),
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(24),
-          color: device.isPowerOn
+          color: routine.device.isPowerOn
               ? AppColors.deviceCardLight
               : AppColors.deviceCardDark,
         ),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-            Icon(device.icon,
+            Icon(routine.device.icon,
                 size: 60,
-                color: device.isPowerOn ? Colors.black : Colors.white),
+                color: routine.device.isPowerOn ? Colors.black : Colors.white),
             Text(
-              device.name,
+              routine.device.name,
               style: TextStyle(
                   fontSize: 22,
-                  color: device.isPowerOn ? Colors.black : Colors.white),
+                  color: routine.device.isPowerOn ? Colors.black : Colors.white),
             ),
             Switch(
-              value: device.isPowerOn,
+              value: routine.device.isPowerOn,
               activeColor: Colors.indigo,
               inactiveThumbColor: Colors.grey,
               inactiveTrackColor: Colors.grey[350],

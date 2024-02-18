@@ -2,14 +2,17 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 import 'package:smart_devices/models/device.dart';
+import 'package:smart_devices/models/routine.dart';
 import 'package:smart_devices/util/device_card.dart';
+import 'package:smart_devices/util/routine_card.dart';
 import 'package:smart_devices/view-models/device_view_model.dart';
 
 class DetailScreen extends StatelessWidget {
-  final Device device;
+  //final Device device;
+  final Routine routine;
   final int index;
 
-  const DetailScreen({Key? key, required this.device, required this.index})
+  const DetailScreen({Key? key, required this.routine, required this.index})
       : super(key: key);
 
   @override
@@ -31,7 +34,7 @@ class DetailScreen extends StatelessWidget {
                       icon: const Icon(Icons.arrow_back_ios, color: Colors.indigoAccent,),
                     ),
                     Text(
-                      device.name,
+                      routine.device.name,
                       style: const TextStyle(
                           fontSize: 20, fontWeight: FontWeight.bold, color: Colors.indigoAccent),
                     ),
@@ -44,13 +47,13 @@ class DetailScreen extends StatelessWidget {
                 Padding(
                   padding: const EdgeInsets.only(top: 30),
                   child: DeviceCard(
-                    device: device,
+                    routine: routine,
                     onChanged: (value) {
                       deviceViewModel.devicePowerSwitch(value, index);
                     },
                   ),
                 ),
-               (device.name == "Thermostat") ? Padding(
+               (routine.device.name == "Thermostat") ? Padding(
                   padding: const EdgeInsets.all(10),
                   child: Container(
                         padding: const EdgeInsets.symmetric(vertical: 18),
@@ -93,6 +96,7 @@ class DetailScreen extends StatelessWidget {
                         ),
                       ),
                 ) : const SizedBox(),
+                RoutineCard(deviceViewModel: deviceViewModel, routine: routine, index: index,),
               ],
             ),
           ),
