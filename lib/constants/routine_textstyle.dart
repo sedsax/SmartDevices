@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 
 class AppStyles {
-  static const TextStyle routineTextStyle = TextStyle(
-    color: Colors.white,
+  static TextStyle routineTextStyle = TextStyle(
+    color: Colors.pink[700],
     fontWeight: FontWeight.bold,
-    fontSize: 15,
+    fontSize: 17,
   );
 
   static const TextStyle timeTextStyle = TextStyle(

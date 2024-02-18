@@ -19,25 +19,61 @@ class DeviceViewModel extends ChangeNotifier {
     Device(name: 'Thermostat', isPowerOn: false, icon: Icons.thermostat),
     Device(name: 'Smart TV', isPowerOn: false, icon: Icons.tv),
     Device(name: 'Camera', isPowerOn: false, icon: Icons.camera_indoor),
-    Device(name: 'Bulbs', isPowerOn: false, icon: Icons.light),
+    Device(name: 'Smart Bulb', isPowerOn: false, icon: Icons.light),
     Device(name: 'Power Plugs', isPowerOn: false, icon: Icons.power),
     Device(name: 'Curtains', isPowerOn: false, icon: Icons.blinds),
+    Device(name: 'Smart Lock', isPowerOn: false, icon: Icons.lock),
   ];
   
 
-  // veriler kaydedilecek
-  //listeyi güncelleme ve silme seçenekleri de eklenecek
-  final List<Routine> _routines = [];
-  List<Routine> get routines => _routines;
+  List<Routine> routines = [
+  Routine(
+    name: "Morning Routine",
+    device: Device(name: "Smart Bulb", icon: Icons.light, isPowerOn: false),
+    time: const TimeOfDay(hour: 7, minute: 30), 
+    actions: ["Turn on lights"],
+  ),
+  Routine(
+    name: "Evening Routine",
+    device: Device(name: "Smart Lock", icon: Icons.lock, isPowerOn: false),
+    time: const TimeOfDay(hour: 20, minute: 0), 
+    actions: ["Lock doors", "Turn off lights"],
+  ),
+];
+ // List<Routine> get routines => _routines;
   void addRoutine(Routine routine) {
-    _routines.add(routine);
+    routines.add(routine);
     notifyListeners(); 
   }
 
-  void deleteRoutine(int index) {
-  _routines.removeAt(index);
-  notifyListeners();
+void deleteRoutine(BuildContext context, int index) {
+  showDialog(
+    context: context,
+    builder: (BuildContext context) {
+      return AlertDialog(
+        title: const Text("Delete Routine"),
+        content: const Text("Are you sure you want to delete this routine?"),
+        actions: [
+          TextButton(
+            onPressed: () {
+              Navigator.of(context).pop();
+            },
+            child: const Text("Cancel"),
+          ),
+          TextButton(
+            onPressed: () {
+              routines.removeAt(index);
+              notifyListeners();
+              Navigator.of(context).pop();
+            },
+            child: const Text("Delete", style: TextStyle(color: Colors.red),),
+          ),
+        ],
+      );
+    },
+  );
 }
+
 
 
   DeviceViewModel(this._prefs) {

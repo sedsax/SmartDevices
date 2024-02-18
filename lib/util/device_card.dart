@@ -41,16 +41,15 @@ class DeviceCard extends StatelessWidget {
                   color: device.isPowerOn ? Colors.black : Colors.white),
             ),
             Switch(
-                value: device.isPowerOn,
-                activeColor: Colors.indigo,
-                inactiveThumbColor: Colors.grey,
-                inactiveTrackColor: Colors.grey[350],
-                onChanged: (value) {
+              value: device.isPowerOn,
+              activeColor: Colors.indigo,
+              inactiveThumbColor: Colors.grey,
+              inactiveTrackColor: Colors.grey[350],
+              onChanged: (value) {
                 if (onChanged != null) {
                   onChanged!(value);
                 }
               },
-            
             ),
           ],
         ),
