@@ -9,8 +9,8 @@ import 'package:smart_devices/view-models/device_view_model.dart';
 void main() {
   group('DeviceViewModel Tests', () {
     test('A new routine should be added', () async {
-      WidgetsFlutterBinding.ensureInitialized();
-      final SharedPreferences prefs = await SharedPreferences.getInstance();
+     SharedPreferences.setMockInitialValues({});
+       final SharedPreferences prefs = await SharedPreferences.getInstance();
       var viewModel = DeviceViewModel(prefs);
 
       var routine = Routine(
