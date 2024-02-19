@@ -53,7 +53,7 @@ class WelcomeUser extends StatelessWidget {
                     Navigator.push(
                       context,
                       MaterialPageRoute(
-                          builder: (context) => NewRoutineScreen()),
+                          builder: (context) => const NewRoutineScreen()),
                     );
                   },
                   icon: const Icon(Icons.add_circle_outline, size: 40))
